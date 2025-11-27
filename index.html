@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSM - Global Industries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <header>
+        <img id="main-logo" src="img/vsm.jpg" alt="VSM" class="logo">
+        <select id="language-selector" class="language-selector">
+            <option value="en">English</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="zh">中文</option>
+        </select>
+    </header>
+    <section class="hero">
+        <h1 id="hero-title">Welcome to VSM</h1>
+        <p id="hero-desc">A multi-industry leader innovating across sectors for a better future.</p>
+    </section>
+    <section class="branches">
+        <div class="branch-card" onclick="window.location.href='https://medicine.vsm.com';">
+            <img id="medicine-logo" src="img/vsm-medicine.jpg" alt="Medicine" class="branch-logo">
+            <p id="medicine-desc">Advancing healthcare solutions worldwide.</p>
+        </div>
+        <div class="branch-card" onclick="window.location.href='https://hightech.vsm.com';">
+            <img id="hightech-logo" src="img/vsm-hightech.jpg" alt="HighTech" class="branch-logo">
+            <p id="hightech-desc">Cutting-edge technology and innovation.</p>
+        </div>
+        <div class="branch-card" onclick="window.location.href='https://hospital.vsm.com';">
+            <img id="hospital-logo" src="img/vsm-hospital.jpg" alt="Hospital" class="branch-logo">
+            <p id="hospital-desc">Providing comprehensive hospital services and patient care worldwide.</p>
+        </div>
+        <div class="branch-card" onclick="window.location.href='https://mineral.vsm.com';">
+            <img id="mineral-logo" src="img/vsm-minereal.jpg" alt="Mineral" class="branch-logo">
+            <p id="mineral-desc">Specializing in mineral exploration, extraction, and processing.</p>
+        </div>
+        <div class="branch-card" onclick="window.location.href='https://agrfood.vsm.com';">
+            <img id="agrfood-logo" src="img/vsm-agr&food.jpg" alt="Agr&Food" class="branch-logo">
+            <p id="agrfood-desc">Innovating in agriculture and food production for sustainable solutions.</p>
+        </div>
+        <!-- Add more cards as needed -->
+    </section>
+    <footer>
+        <p id="footer-text">&copy; 2025 VSM. All rights reserved.</p>
+    </footer>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

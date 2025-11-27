@@ -1,0 +1,175 @@
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+    --overlay-alpha: 0.45;
+    --hero-overlay-alpha: 0.35;
+    --overlay-color: rgba(0, 0, 0, var(--overlay-alpha));
+    --hero-overlay-color: rgba(0, 0, 0, var(--hero-overlay-alpha));
+    --branch-crop: 6%;
+    --main-logo-size: 80px;
+    --main-logo-crop: 6%;
+    --branches-max-width: 1080px;
+    --branch-card-min-width: 240px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url('../../img/Website-News-and-Event-Thumbnail.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+.logo {
+    width: var(--main-logo-size);
+    height: var(--main-logo-size);
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    margin-left: 0;
+    -webkit-clip-path: inset(var(--main-logo-crop) var(--main-logo-crop) var(--main-logo-crop) var(--main-logo-crop));
+    clip-path: inset(var(--main-logo-crop) var(--main-logo-crop) var(--main-logo-crop) var(--main-logo-crop));
+}
+.language-selector {
+    padding: 10px;
+    background-color: #333333;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1em;
+    cursor: pointer;
+    max-width: 180px;
+    min-width: 0;
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: transparent;
+    padding: 0 20px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay-color);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+#hero-title {
+    color: #ffd900;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.hero p {
+    font-size: 1.5em;
+    max-width: 800px;
+}
+#hero-desc {
+    color: rgb(255, 174, 0);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.branches {
+    padding: 80px 34px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(var(--branch-card-min-width), 1fr));
+    gap: 24px;
+    max-width: var(--branches-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+.branch-card {
+    background-color: #1A1A1A;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.branch-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+.branch-logo {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+    clip-path: inset(var(--branch-crop) var(--branch-crop) var(--branch-crop) var(--branch-crop));
+    -webkit-clip-path: inset(var(--branch-crop) var(--branch-crop) var(--branch-crop) var(--branch-crop));
+}
+.branch-card p {
+    font-size: 1.2em;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    border-top: 1px solid #333333;
+}
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3em; }
+    .hero p { font-size: 1.2em; }
+    .branches { padding: 80px 20px; }
+    .logo { width: 40px; height: 40px; }
+    header { padding: 12px 18px; }
+    .language-selector { max-width: 120px; font-size: 0.9em; }
+    .branch-logo { max-width: 120px; aspect-ratio: 1/1; }
+    .branches { grid-template-columns: repeat(1, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .branches {
+        padding: 40px 16px;
+        gap: 18px;
+        justify-items: center;
+    }
+    .branch-card {
+        max-width: 280px; 
+        width: 100%;
+        padding: 18px; 
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .branch-logo {
+        width: min(160px, 72%); 
+        max-width: 160px; 
+        aspect-ratio: 1/1; 
+        margin-bottom: 8px; 
+    }
+    .branch-card p {
+        font-size: 1em;
+        margin-top: 6px;
+    }
+}
